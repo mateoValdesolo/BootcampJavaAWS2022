@@ -19,7 +19,6 @@ public class GuardarController extends HttpServlet {
 
 	private static final long serialVersionUID = 4968995477720956596L;
 	
-	
 	private PersonaService perService;
 	
 	  @Override

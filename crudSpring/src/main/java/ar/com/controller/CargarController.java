@@ -21,7 +21,6 @@ public class CargarController extends HttpServlet {
 
 	private static final long serialVersionUID = -5677138699339316812L;
 	
-	
 	private PersonaService perService;
 	
 	  @Override

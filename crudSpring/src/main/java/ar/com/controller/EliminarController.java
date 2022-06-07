@@ -19,7 +19,6 @@ import ar.com.config.AppConfig;
 public class EliminarController extends HttpServlet {
 	
 	private static final long serialVersionUID = 4968995477720956596L;
-	
 
 	private PersonaService perService;
 	

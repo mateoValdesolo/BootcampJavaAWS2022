@@ -21,7 +21,6 @@ public class ModificarController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
-	
 	private PersonaService perService;
 	
 	  @Override
