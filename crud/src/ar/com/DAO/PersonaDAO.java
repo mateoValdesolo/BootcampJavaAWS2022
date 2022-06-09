@@ -123,10 +123,10 @@ public class PersonaDAO {
 		BufferedWriter buff = new BufferedWriter(new FileWriter(this.getFile()));
 		        
 		for(Persona per: personas) {
-			  buff.write(per.getNombre() + "; ");
-			  buff.write(per.getApellido() + "; ");
-			  buff.write(per.getDni() + "; ");
-			  buff.write(per.getNacimiento() + "; ");
+			  buff.write(per.getNombre() + ";");
+			  buff.write(per.getApellido() + ";");
+			  buff.write(per.getDni() + ";");
+			  buff.write(per.getNacimiento() + ";");
 			  buff.write(per.getProfesion());
 			  buff.newLine();
 		}
