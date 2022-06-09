@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import ar.com.BO.PersonaService;
 import ar.com.bean.Persona;
-import ar.com.exceptions.DAOException;
 
 @WebServlet("/modificar")
 public class ModificarController extends HttpServlet {
