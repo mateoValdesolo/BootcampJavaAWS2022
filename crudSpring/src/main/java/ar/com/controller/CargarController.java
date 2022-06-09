@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import ar.com.BO.PersonaService;
@@ -26,14 +25,10 @@ public class CargarController extends HttpServlet {
 	  @Override
 	   	public void init() throws ServletException {
 	   		
-	   		super.init();
-	   		
 			AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext();
 			ac.register(AppConfig.class);
 			ac.refresh();
-			
 			perService = ac.getBean(PersonaService.class);
-			
 			ac.close();
 	   		
 	   	}

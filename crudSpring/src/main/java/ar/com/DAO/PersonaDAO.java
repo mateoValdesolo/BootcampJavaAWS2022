@@ -31,9 +31,13 @@ public class PersonaDAO {
 		}
 		return new File(uri);
 	}
-
+	
+	/** Retorna una Lista con todas las Personas agregadas hasta el momento.
+	 * @return
+	 * @throws IOException
+	 */
 	public List<Persona> getPersonas() throws IOException {
-		// Retorna una Lista con todas las Personas agregadas hasta el momento.
+		
 
 		List<Persona> personas = new ArrayList<Persona>();
 
@@ -62,8 +66,14 @@ public class PersonaDAO {
 		return personas;
 	}
 
+	/** 
+	 * Metodo que agrega y retorna la Persona recibida por parametro.
+	 * @param per
+	 * @return
+	 * @throws Exception
+	 */
 	public Persona agregarPersona(Persona per) throws Exception {
-		// Metodo que agrega y retorna la Persona recibida por parametro.
+		
 		
 		List<Persona> personas = getPersonas();
 		
@@ -83,8 +93,12 @@ public class PersonaDAO {
 		return per;
 	}
 
+	/** Metodo que elimina la Persona con el DNI pasado por parametro.
+	 * @param dni
+	 * @throws Exception
+	 */
 	public void eliminarPersona(String dni) throws Exception {
-		// Metodo que elimina la Persona con el DNI pasado por parametro.
+		
 		List<Persona> personas = getPersonas();
 		personas = personas.stream()
 						   .filter(x -> !x.getDni().equals(dni))
@@ -93,17 +107,27 @@ public class PersonaDAO {
 		refrescarLista(personas);
 	}
 
+	/** Metodo que encuentra y retorna la Persona con el DNI pasado por parametro.
+	 * @param dni
+	 * @return
+	 * @throws RuntimeException
+	 * @throws IOException
+	 */
 	public Persona encontrarPersona(String dni) throws RuntimeException, IOException {
-		// Metodo que encuentra y retorna la Persona con el DNI pasado por parametro.
+		
 		return getPersonas().stream()
 							.filter(x -> x.getDni().equals(dni))
 							.findAny()
 							.orElseThrow(() -> new RuntimeException("Persona No Existe"));
 	}
 
+	/** Metodo que agrega a la Persona editada y la retorna.
+	 * @param per
+	 * @return
+	 * @throws Exception
+	 */
 	public Persona editar(Persona per) throws Exception {
-		// Metodo que agrega a la Persona editada y la retorna.
-
+		
 		// Quito la persona con el DNI de la lista.
 		List<Persona> personas = getPersonas();
 		personas = personas.stream()
