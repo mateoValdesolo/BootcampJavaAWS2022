@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import ar.com.BO.PersonaService;
-import ar.com.config.JDBCConfig;
+import ar.com.config.AppConfig;
 
 @WebServlet("/eliminar")
 public class EliminarController extends HttpServlet {
@@ -28,7 +28,7 @@ public class EliminarController extends HttpServlet {
 		super.init();
 
 		AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext();
-		ac.register(JDBCConfig.class);
+		ac.register(AppConfig.class);
 		ac.refresh();
 
 		perService = ac.getBean(PersonaService.class);

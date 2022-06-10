@@ -22,8 +22,8 @@ public class PersonaService {
 		return perDao.getPersonas();
 	}
 
-	public boolean agregarPersona(Persona per) {
-		return perDao.agregarPersona(per);
+	public void agregarPersona(Persona per) {
+		perDao.agregarPersona(per);
 	}
 
 	public void eliminarPersona(String dni) {
@@ -34,8 +34,8 @@ public class PersonaService {
 		return perDao.encontrarPersona(dni);
 	}
 
-	public boolean editar(Persona per) {
-		return perDao.editar(per);
+	public void editar(Persona per) {
+		perDao.editar(per);
 	}
 
 }

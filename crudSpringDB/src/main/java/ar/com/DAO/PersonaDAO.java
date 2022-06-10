@@ -8,11 +8,11 @@ public interface PersonaDAO {
 	
 	List<Persona> getPersonas();
 
-	boolean agregarPersona(Persona persona);
+	void agregarPersona(Persona persona);
 
-	boolean eliminarPersona(String dni);
+	void eliminarPersona(String dni);
 
 	Persona encontrarPersona(String dni);
 
-	boolean editar(Persona persona);
+	void editar(Persona persona);
 }

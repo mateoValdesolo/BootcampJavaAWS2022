@@ -1,19 +1,17 @@
 package ar.com.DAO;
 
 import java.sql.Connection;
-import java.io.IOException;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Types;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.PreparedStatementCreator;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import ar.com.bean.Persona;
+import ar.com.config.DBData;
 
 @Repository
 public class PersonaDAOImpl implements PersonaDAO {
@@ -21,163 +19,276 @@ public class PersonaDAOImpl implements PersonaDAO {
 	 * PersonaDAO se encarga de manejar los Beans.
 	 */
 
-	@Autowired
-	JdbcTemplate statement;
-
 	/**
 	 * Retorna una Lista con todas las Personas agregadas hasta el momento.
-	 * 
-	 * @return
-	 * @throws IOException
 	 */
 	public List<Persona> getPersonas() {
 
-		List<Persona> list = statement.query("SELECT * FROM crud;", new RowMapper<Persona>() {
+		List<Persona> lista = new ArrayList<>();
 
-			@Override
-			public Persona mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Persona per = new Persona();
+		Connection conn = null;
+		Statement stmt = null;
 
-				per.setNombre(rs.getString("nombre"));
-				per.setApellido(rs.getString("apellido"));
-				per.setDni(rs.getString("dni"));
-				per.setNacimiento(rs.getString("fecha_nac"));
-				per.setProfesion(rs.getString("profesion"));
+		try {
+			Class.forName(DBData.JDBC_DRIVER);
 
-				return per;
+			conn = DriverManager.getConnection(DBData.DB_URL, DBData.USER, DBData.PASS);
+
+			String sql = "SELECT * FROM PERSONA";
+
+			stmt = conn.createStatement();
+			ResultSet result = stmt.executeQuery(sql);
+
+			while (result.next()) {
+				String dni = result.getString(1);
+				String nombre = result.getString(2);
+				String apellido = result.getString(3);
+				String fechaNac = result.getString(4);
+				String profesion = result.getString(5);
+
+				lista.add(new Persona(nombre, apellido, dni, fechaNac, profesion));
 			}
 
-		});
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if (stmt != null) {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 
-		return list;
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return lista;
 	}
 
 	/**
-	 * Metodo que agrega y retorna la Persona recibida por parametro.
-	 * 
-	 * @param per
-	 * @return
-	 * @throws Exception
+	 * Metodo que agrega la Persona recibida por parametro.
 	 */
-	public boolean agregarPersona(Persona per) {
+	public void agregarPersona(Persona per) {
 
-		boolean status = false;
+		Connection conn = null;
+		PreparedStatement stmt = null;
 
-		statement.update(new PreparedStatementCreator() {
+		try {
+			Class.forName(DBData.JDBC_DRIVER);
 
-			@Override
-			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				PreparedStatement statement = con.prepareStatement(
-						"INSERT INTO crud (nombre, apellido, dni, fecha_nac,profesion) VALUES(?,?,?,?,?)");
+			conn = DriverManager.getConnection(DBData.DB_URL, DBData.USER, DBData.PASS);
 
-				statement.setString(1, null);
-				statement.setString(2, per.getNombre());
-				statement.setString(3, per.getApellido());
-				statement.setString(4, per.getDni());
-				statement.setString(5, per.getNacimiento());
-				statement.setString(6, per.getProfesion());
+			String sql = "INSERT INTO PERSONA(nombre, apellido, dni, fechaNacimiento, profesion) "
+					+ " VALUES (?, ?, ?, ?, ?)";
 
-				return statement;
+			stmt = conn.prepareStatement(sql);
 
+			stmt.setString(1, per.getNombre());
+			stmt.setString(2, per.getApellido());
+			stmt.setString(3, per.getDni());
+			stmt.setString(4, per.getNacimiento());
+			stmt.setString(5, per.getProfesion());
+
+			stmt.executeUpdate();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if (stmt != null) {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
-		});
 
-		status = true;
-
-		return status;
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 
 	/**
 	 * Metodo que elimina la Persona con el DNI pasado por parametro.
-	 * 
-	 * @param dni
-	 * @throws Exception
 	 */
-	public boolean eliminarPersona(String dni) {
+	public void eliminarPersona(String dni) {
 
-		boolean status = false;
+		Connection conn = null;
+		PreparedStatement stmt = null;
 
-		statement.update(new PreparedStatementCreator() {
+		try {
+			Class.forName(DBData.JDBC_DRIVER);
 
-			@Override
-			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				PreparedStatement statement = con.prepareStatement("DELETE FROM crud WHERE dni=?");
+			conn = DriverManager.getConnection(DBData.DB_URL, DBData.USER, DBData.PASS);
 
-				statement.setString(1, dni);
+			String sql = "DELETE FROM PERSONA WHERE dni = ?";
 
-				return statement;
+			stmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 
+			stmt.setString(1, dni);
+
+			stmt.executeUpdate();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if (stmt != null) {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
-		});
 
-		status = true;
-
-		return status;
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 
 	/**
 	 * Metodo que encuentra y retorna la Persona con el DNI pasado por parametro.
 	 * 
-	 * @param dni
-	 * @return
-	 * @throws RuntimeException
-	 * @throws IOException
 	 */
 	public Persona encontrarPersona(String dni) {
 
-		Persona p = statement.queryForObject("SELECT * FROM crud WHERE dni =?", new Object[] { dni },
-				new int[] { Types.VARCHAR }, new RowMapper<Persona>() {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		Persona perEncontrada = new Persona();
 
-					@Override
-					public Persona mapRow(ResultSet rs, int rowNum) throws SQLException {
-						Persona p = new Persona();
+		try {
+			Class.forName(DBData.JDBC_DRIVER);
 
-						p.setNombre(rs.getString("nombre"));
-						p.setApellido(rs.getString("apellido"));
-						p.setDni(rs.getString("dni"));
-						p.setNacimiento(rs.getString("fecha_nac"));
-						p.setProfesion(rs.getString("profesion"));
+			conn = DriverManager.getConnection(DBData.DB_URL, DBData.USER, DBData.PASS);
 
-						return p;
-					}
+			String sql = "SELECT * FROM PERSONA WHERE dni=?";
 
-				});
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, dni);
+			ResultSet result = stmt.executeQuery();
 
-		return p;
+			if (result.next()) {
+
+				String nombre = result.getString("nombre");
+				String apellido = result.getString("apellido");
+				String fechaNac = result.getString("fechaNacimiento");
+				String profesion = result.getString("profesion");
+
+				perEncontrada = new Persona(nombre, apellido, dni, fechaNac, profesion);
+			}
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if (stmt != null) {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return perEncontrada;
 	}
 
 	/**
 	 * Metodo que agrega a la Persona editada y la retorna.
-	 * 
-	 * @param per
-	 * @return
-	 * @throws Exception
 	 */
-	public boolean editar(Persona per) {
+	public void editar(Persona per) {
 
-		boolean status = false;
+		Connection conn = null;
+		PreparedStatement stmt = null;
 
-		statement.update(new PreparedStatementCreator() {
+		try {
+			Class.forName(DBData.JDBC_DRIVER);
 
-			@Override
-			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				PreparedStatement statement = con.prepareStatement(
-						"UPDATE crud SET nombre=?, apellido=?, fechaNacimiento=?, profesion=? WHERE dni=?");
+			conn = DriverManager.getConnection(DBData.DB_URL, DBData.USER, DBData.PASS);
 
-				statement.setString(1, per.getNombre());
-				statement.setString(2, per.getApellido());
-				statement.setString(3, per.getDni());
-				statement.setString(4, per.getNacimiento());
-				statement.setString(5, per.getProfesion());
+			String sql = "UPDATE PERSONA SET nombre=?, apellido=?, fechaNacimiento=?, profesion=? WHERE dni=?";
 
-				return statement;
+			stmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 
+			stmt.setString(1, per.getNombre());
+			stmt.setString(2, per.getApellido());
+			stmt.setString(3, per.getNacimiento());
+			stmt.setString(4, per.getProfesion());
+			stmt.setString(5, per.getDni());
+
+			stmt.executeUpdate();
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if (stmt != null) {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
-		});
 
-		status = true;
-
-		return status;
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 
 }

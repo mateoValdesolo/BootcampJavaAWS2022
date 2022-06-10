@@ -14,7 +14,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import ar.com.BO.PersonaService;
 import ar.com.bean.Persona;
-import ar.com.config.JDBCConfig;
+import ar.com.config.AppConfig;
 
 @WebServlet("/cargar")
 public class CargarController extends HttpServlet {
@@ -29,7 +29,7 @@ public class CargarController extends HttpServlet {
 		super.init();
 
 		AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext();
-		ac.register(JDBCConfig.class);
+		ac.register(AppConfig.class);
 		ac.refresh();
 
 		perService = ac.getBean(PersonaService.class);

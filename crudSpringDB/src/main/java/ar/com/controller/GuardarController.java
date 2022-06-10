@@ -3,7 +3,7 @@ package ar.com.controller;
 import java.io.IOException;
 import ar.com.BO.PersonaService;
 import ar.com.bean.Persona;
-import ar.com.config.JDBCConfig;
+import ar.com.config.AppConfig;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,7 +27,7 @@ public class GuardarController extends HttpServlet {
 		super.init();
 
 		AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext();
-		ac.register(JDBCConfig.class);
+		ac.register(AppConfig.class);
 		ac.refresh();
 
 		perService = ac.getBean(PersonaService.class);
