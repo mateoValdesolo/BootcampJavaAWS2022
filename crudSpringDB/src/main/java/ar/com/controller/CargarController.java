@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import ar.com.BO.PersonaService;
@@ -20,26 +19,24 @@ import ar.com.config.AppConfig;
 public class CargarController extends HttpServlet {
 
 	private static final long serialVersionUID = -5677138699339316812L;
-
+	
 	private PersonaService perService;
-
-	@Override
-	public void init() throws ServletException {
-
-		super.init();
-
-		AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext();
-		ac.register(AppConfig.class);
-		ac.refresh();
-
-		perService = ac.getBean(PersonaService.class);
-
-		ac.close();
-
-	}
+	
+	  @Override
+	   	public void init() throws ServletException {
+	   		
+			AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext();
+			ac.register(AppConfig.class);
+			ac.refresh();
+			perService = ac.getBean(PersonaService.class);
+			ac.close();
+	   		
+	   	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("Formulario.jsp");
 
 		Persona per;
 
@@ -50,9 +47,9 @@ public class CargarController extends HttpServlet {
 		request.setAttribute("nacimiento", per.getNacimiento());
 		request.setAttribute("profesion", per.getProfesion());
 
-		request.setAttribute("accion", "modificar");
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/Formulario.jsp");
+		request.setAttribute("accion", "guardar");
+		request.setAttribute("opcion", "modificar");
+		
 		dispatcher.forward(request, response);
 
 	}

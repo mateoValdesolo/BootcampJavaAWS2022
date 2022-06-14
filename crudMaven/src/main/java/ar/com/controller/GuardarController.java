@@ -19,21 +19,35 @@ public class GuardarController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Persona per = Persona.builder()
-							 .nombre(request.getParameter("nombre"))
-							 .apellido(request.getParameter("apellido"))
-							 .dni(request.getParameter("dni"))
-							 .nacimiento(request.getParameter("nacimiento"))
-							 .profesion(request.getParameter("profesion"))
-							 .build();
+		Persona per = Persona.builder().nombre(request.getParameter("nombre"))
+									   .apellido(request.getParameter("apellido"))
+									   .dni(request.getParameter("dni"))
+									   .nacimiento(request.getParameter("nacimiento"))
+									   .profesion(request.getParameter("profesion"))
+									   .build();
 
-		try {
-			PersonaService.getInstance().agregarPersona(per);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		
+		switch ((String) request.getParameter("opcion")) {
+		case "agregar":
+			try {
+				PersonaService.getInstance().agregarPersona(per);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			break;
+		case "modificar":
+			try {
+				PersonaService.getInstance().editar(per);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			break;
+		default:
+			break;
 		}
-
+		
 		response.sendRedirect("listar");
 
 	}

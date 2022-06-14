@@ -48,11 +48,25 @@ public class GuardarController extends HttpServlet {
 							 .profesion(request.getParameter("profesion"))
 							 .build();
 
-		try {
-			perService.agregarPersona(per);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		switch ((String) request.getParameter("opcion")) {
+		case "agregar":
+			try {
+				perService.agregarPersona(per);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			break;
+		case "modificar":
+			try {
+				perService.editar(per);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			break;
+		default:
+			break;
 		}
 
 		response.sendRedirect("listar");

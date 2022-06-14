@@ -58,7 +58,7 @@
 		<input type="text" value="<%= request.getAttribute("apellido") != null ? request.getAttribute("apellido") : "" %>" name="apellido"> 
 		</p>
 		
-		<% if (request.getAttribute("accion") == "modificar") {%>
+		<% if (request.getAttribute("opcion") == "modificar") {%>
 			<p> 
 			<label>DNI</label> 
 			<input type="text" value="<%= request.getAttribute("dni")%>" name="dni" readOnly> 
@@ -79,7 +79,7 @@
 		<input type="text" value="<%= request.getAttribute("profesion") != null ? request.getAttribute("profesion") : "" %>" name="profesion"> 
 		</p>
 	
-		<button type="submit" name="agregar" value="agregar"><%= request.getAttribute("accion") %></button>
+		<button type="submit" name="opcion" value="<%= request.getAttribute("opcion") %>"><%= request.getAttribute("opcion") %></button>
 	</form>
 	
 </body>

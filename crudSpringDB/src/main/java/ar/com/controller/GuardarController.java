@@ -18,37 +18,55 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class GuardarController extends HttpServlet {
 
 	private static final long serialVersionUID = 4968995477720956596L;
-
+	
 	private PersonaService perService;
-
-	@Override
-	public void init() throws ServletException {
-
-		super.init();
-
-		AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext();
-		ac.register(AppConfig.class);
-		ac.refresh();
-
-		perService = ac.getBean(PersonaService.class);
-
-		ac.close();
-
-	}
+	
+	  @Override
+	   	public void init() throws ServletException {
+	   		
+	   		super.init();
+	   		
+			AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext();
+			ac.register(AppConfig.class);
+			ac.refresh();
+			
+			perService = ac.getBean(PersonaService.class);
+			
+			ac.close();
+	   		
+	   	}
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Persona per = Persona.builder().nombre(request.getParameter("nombre"))
-				.apellido(request.getParameter("apellido")).dni(request.getParameter("dni"))
-				.nacimiento(request.getParameter("nacimiento")).profesion(request.getParameter("profesion")).build();
+		Persona per = Persona.builder()
+							 .nombre(request.getParameter("nombre"))
+							 .apellido(request.getParameter("apellido"))
+							 .dni(request.getParameter("dni"))
+							 .nacimiento(request.getParameter("nacimiento"))
+							 .profesion(request.getParameter("profesion"))
+							 .build();
 
-		try {
-			perService.agregarPersona(per);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		switch ((String) request.getParameter("opcion")) {
+		case "agregar":
+			try {
+				perService.agregarPersona(per);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			break;
+		case "modificar":
+			try {
+				perService.editar(per);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			break;
+		default:
+			break;
 		}
 
 		response.sendRedirect("listar");

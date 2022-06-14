@@ -20,6 +20,7 @@ public class AgregarController extends HttpServlet {
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("Formulario.jsp");
 		request.setAttribute("accion", "guardar");
+		request.setAttribute("opcion", "agregar");
 		dispatcher.forward(request, response);
 
 	}

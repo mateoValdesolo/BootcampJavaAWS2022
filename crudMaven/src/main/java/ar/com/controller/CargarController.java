@@ -19,6 +19,8 @@ public class CargarController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("Formulario.jsp");
 
 		Persona per;
 
@@ -29,9 +31,9 @@ public class CargarController extends HttpServlet {
 		request.setAttribute("nacimiento", per.getNacimiento());
 		request.setAttribute("profesion", per.getProfesion());
 
-		request.setAttribute("accion", "modificar");
+		request.setAttribute("accion", "guardar");
+		request.setAttribute("opcion", "modificar");
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/Formulario.jsp");
 		dispatcher.forward(request, response);
 
 	}
