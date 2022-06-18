@@ -17,3 +17,7 @@
 - [Crud Spring](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/crudSpring)
 ### Usando Spring, Maven, Servlets, JDBC y .jsp (Almacenando los datos en una BD de MariaDB).
 - [Crud Spring DB](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/crudSpringDB)
+### Usando Spring, Maven, Servlets, Spring JDBC y .jsp (Almacenando los datos en una BD de MariaDB).
+- [Crud Spring DB 2](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/crudSpringDB_2)
+### Usando Spring, Maven, Spring JDBC, Spring MVC y .jsp (Almacenando los datos en una BD de MariaDB).
+- [Crud Spring MVC](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/crudSpringMVC)
