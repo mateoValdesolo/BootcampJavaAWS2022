@@ -8,7 +8,7 @@
 ### Clase 5 (Java Foundation Classes (Interfaz Grafica)).
 - [Clase 5](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/EjerciciosBootcampJava2022/src/clase5)
 ***
-## Crud
+## Crud de Personas
 ### Usando Dynamic Web Project, Servlets y .jsp (Almacenando los datos en un .txt).
 - [Crud](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/crud)
 ### Usando Maven, Servlets y .jsp (Almacenando los datos en un .txt).
