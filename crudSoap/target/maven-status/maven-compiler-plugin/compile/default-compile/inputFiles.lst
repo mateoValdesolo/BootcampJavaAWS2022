@@ -1,0 +1,11 @@
+C:\Users\mateo\eclipse\crudSoap\src\main\java\ar\com\entity\Persona.java
+C:\Users\mateo\eclipse\crudSoap\src\main\java\ar\com\service\PersonaBo.java
+C:\Users\mateo\eclipse\crudSoap\src\main\java\ar\com\repository\PersonaDaoImpl.java
+C:\Users\mateo\eclipse\crudSoap\src\main\java\ar\com\webservice\PersonasCrud.java
+C:\Users\mateo\eclipse\crudSoap\src\main\java\ar\com\webservice\PersonasCrudImpl.java
+C:\Users\mateo\eclipse\crudSoap\src\main\java\ar\com\config\JDBCConfiguration.java
+C:\Users\mateo\eclipse\crudSoap\src\main\java\ar\com\entityMapper\PersonaMapper.java
+C:\Users\mateo\eclipse\crudSoap\src\main\java\ar\com\exceptions\PersonaNotFoundException.java
+C:\Users\mateo\eclipse\crudSoap\src\main\java\ar\com\repository\PersonaDao.java
+C:\Users\mateo\eclipse\crudSoap\src\main\java\ar\com\service\PersonaBoImpl.java
+C:\Users\mateo\eclipse\crudSoap\src\main\java\ar\com\exceptions\PersonaRepetidaException.java
