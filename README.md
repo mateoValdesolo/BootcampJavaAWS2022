@@ -22,7 +22,11 @@
 - [Crud Spring DB 2](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/crudSpringDB_2)
 ### Usando Spring, Maven, Spring JDBC, Spring MVC y .jsp (Almacenando los datos en una BD de MariaDB).
 - [Crud Spring MVC](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/crudSpringMVC)
+### Usando Spring, Maven, Spring JDBC, Spring MVC y .jsp (Usando crudSoap).
+- [Crud Invocando Web Service SOAP](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/crudInvocaSoap)
 ***
 ## Web Services 🌐
 ### Web Service SOAP de Operaciones Matematicas, usando CXF.
 - [matematica](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/matematica)
+### Web Service SOAP Crud de Personas, usando CXF.
+- [crudSoap](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/crudSoap)
