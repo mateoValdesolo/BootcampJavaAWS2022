@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jndi.JndiObjectFactoryBean;
 
 @Configuration
-@ComponentScan(basePackages = {"ar.com.BO", "ar.com.DAO", "ar.com.controller"})
+@ComponentScan(basePackages = "ar.com")
 public class JDBCConfig {
 
 	@Bean

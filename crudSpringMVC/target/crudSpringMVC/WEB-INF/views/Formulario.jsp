@@ -74,7 +74,7 @@
 			<c:when test="${action eq 'MODIFICAR'}">
 			<p> 
 			<form:label path="dni">DNI</form:label>
-			<form:input type="text" path="dni"/> 
+			<form:input type="text" path="dni" readonly="true"/> 
 			</p>
 		</c:when>
 		<c:otherwise>
