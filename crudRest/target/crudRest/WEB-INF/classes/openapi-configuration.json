@@ -1,0 +1,32 @@
+{
+    "scannerClass": "io.swagger.v3.jaxrs2.integration.JaxrsApplicationScanner",
+	"prettyPrint": true,
+	"cacheTTL": 0,
+	"openAPI": {
+		"info": {
+			"version": "1.0",
+			"title": "Personas REST API",
+			"description": "API REST para administrar Personas",
+			"contact": {
+				"name" : "Mateo Valdesolo",
+				"url": "https://github.com/mateoValdesolo",
+				"email": "mateovalde@gmail.com"
+			},
+			"license": {
+				"name": "Apache 2.0",
+				"url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+			}
+		},
+		"servers": [
+			{
+				"url": "/crudRest/v1.0",
+				"description": "API Services Server"
+			}
+		],
+		"components": {
+       	}
+	},
+	"userDefinedOptions": {
+		"support.swagger.ui": true
+	}
+}
