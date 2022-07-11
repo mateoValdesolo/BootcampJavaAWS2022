@@ -1,0 +1,15 @@
+2022-07-10 20:04:11,107 INFO a.c.c.c.CrudRest [http-nio-8080-exec-8] Obteniendo Lista de Personas
+2022-07-10 20:08:41,846 INFO a.c.c.c.CrudRest [http-nio-8080-exec-2] Obteniendo Lista de Personas
+2022-07-10 20:13:28,337 INFO a.c.c.c.CrudRest [http-nio-8080-exec-2] Obteniendo Lista de Personas
+2022-07-10 20:14:53,654 INFO a.c.c.c.CrudRest [http-nio-8080-exec-8] Agregando persona
+2022-07-10 20:15:13,893 INFO a.c.c.c.CrudRest [http-nio-8080-exec-9] Obteniendo persona con dni 42968925
+2022-07-10 20:15:15,261 INFO a.c.c.c.CrudRest [http-nio-8080-exec-10] Obteniendo persona con dni 42968925
+2022-07-10 20:15:39,440 INFO a.c.c.c.CrudRest [http-nio-8080-exec-1] Actualizando persona con dni 3
+2022-07-10 20:15:40,427 INFO a.c.c.c.CrudRest [http-nio-8080-exec-2] Actualizando persona con dni 3
+2022-07-10 20:15:51,097 INFO a.c.c.c.CrudRest [http-nio-8080-exec-5] Actualizando persona con dni 4
+2022-07-10 20:16:04,720 INFO a.c.c.c.CrudRest [http-nio-8080-exec-3] Eliminando persona con dni 3
+2022-07-10 20:16:06,010 INFO a.c.c.c.CrudRest [http-nio-8080-exec-4] Eliminando persona con dni 3
+2022-07-10 20:16:32,351 INFO a.c.c.c.CrudRest [http-nio-8080-exec-6] Obteniendo Lista de Personas
+2022-07-10 20:16:41,836 INFO a.c.c.c.CrudRest [http-nio-8080-exec-7] Obteniendo Lista de Personas
+2022-07-10 20:21:24,020 INFO a.c.c.c.CrudRest [http-nio-8080-exec-3] Obteniendo Lista de Personas
+2022-07-11 11:41:50,431 INFO a.c.c.c.CrudRest [http-nio-8080-exec-6] Obteniendo Lista de Personas
