@@ -34,3 +34,5 @@
 - [crudSoap](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/crudSoap)
 ### Web Service Rest Crud de Personas, usando CXF.
 - [crudRest](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/crudRest)
+### Web Service Rest Crud de Personas, usando RestController, SpringBoot.
+- [crudRestController](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/crudRestController)
