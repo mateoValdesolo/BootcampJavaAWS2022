@@ -6,23 +6,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "persona")
+@Table(name = "PERSONA")
 public class Persona {
 
 	@Id
-	@Column(name = "dni", unique = true)
+	@Column(name = "DNI", unique = true)
 	private String dni;
 
-	@Column(name = "nombre")
+	@Column(name = "NOMBRE")
 	private String nombre;
 
-	@Column(name = "apellido")
+	@Column(name = "APELLIDO")
 	private String apellido;
 
-	@Column(name = "fechaNacimiento")
+	@Column(name = "FECHANACIMIENTO")
 	private String fechaNacimiento;
 
-	@Column(name = "profesion")
+	@Column(name = "PROFESION")
 	private String profesion;
 
 	public Persona() {
