@@ -1,4 +1,7 @@
 # BootcampJavaAWS2022
+#### Tecnologias Vistas:
+Servlets, JSP, AWT, Swing, JFX, Spring, Spring MVC, JPA, JDBC, SpringBoot, Tomcat, Maven, CXF, Swagger.
+
 ## Ejercicios
 ### Clase 2 (Ejercicios Varios).
 - [Clase 2](https://github.com/mateoValdesolo/BootcampJavaAWS2022/blob/master/EjerciciosBootcampJava2022/src/clase2)
