@@ -24,7 +24,7 @@ Servlets, JSP, AWT, Swing, JFX, Spring, Lombok, Spring MVC, JPA, JDBC, SpringBoo
 ### Usando Spring, Maven, Servlets, Spring JDBC y .jsp (Almacenando los datos en una BD de MariaDB).
 - [Crud Spring DB 2](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/crudSpringDB_2)
 ### Usando SpringBoot, Maven, Spring MVC, Spring Data JPA (Almacenando los datos en una BD de MariaDB).
-- [Crud Spring DB 2](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/crudSpringBData)
+- [Crud SpringBoot Data JPA](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/crudSpringBData)
 ### Usando Spring, Maven, Spring JDBC, Spring MVC y .jsp (Almacenando los datos en una BD de MariaDB).
 - [Crud Spring MVC](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/crudSpringMVC)
 ### Usando Spring, Maven, Spring JDBC, Spring MVC y .jsp (Usando crudSoap).
