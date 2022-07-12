@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Listado</title>
+<link rel="stylesheet" th:href="@{/List-Style.css}">
+</head>
+<body>
+	<h1>Lista de Personas</h1>
+	<div th:switch="${LISTA_PERSONAS}">
+		<h2 th:case="null">No hay Personas</h2>
+		<div th:case="*">
+			<table id="personas">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Apellido</th>
+						<th>Dni</th>
+						<th>Nacimiento</th>
+						<th>Profesion</th>
+						<th>Opciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="per : ${LISTA_PERSONAS}">
+						<td th:text="${per.nombre}"></td>
+						<td th:text="${per.apellido}"></td>
+						<td th:text="${per.dni}"></td>
+						<td th:text="${per.nacimiento}"></td>
+						<td th:text="${per.profesion}"></td>
+						<td><a th:href="@{/eliminarPersona/{dni}(dni=${per.dni})}">Eliminar</a>
+						<a th:href="@{/modificar/{dni}(dni=${per.dni})}">Modificar</a></td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p>
+			<a href="/agregar" id="agregar">Agregar otra Persona</a>
+		</p>
+	</div>
+</body>
+</html>

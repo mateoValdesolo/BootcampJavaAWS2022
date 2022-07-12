@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Formulario</title>
+<link rel="stylesheet" th:href="@{/Form-Style.css}">
+</head>
+<body>
+	<h1>Datos de la Persona</h1>
+
+	<form action="#" th:action="@{/guardar}" th:object="${persona}"
+		method="POST">
+
+
+		<p>
+			<label for="nombre">NOMBRE</label> <input type="text"
+				th:field="*{nombre}" id="nombre" name="nombre" maxlength="300"
+				placeholder="Nombre" required>
+		</p>
+
+
+		<p>
+			<label for="apellido">APELLIDO</label> <input type="text"
+				th:field="*{apellido}" id="apellido" name="apellido" maxlength="300"
+				placeholder="Apellido" required>
+		</p>
+
+
+		<p>
+			<label for="dni">DNI</label> <input type="text" th:field="*{dni}"
+				id="dni" name="dni" maxlength="300" placeholder="Dni" required>
+		</p>
+
+
+
+		<p>
+			<label for="nacimiento">NACIMIENTO</label> <input type="date"
+				th:field="*{nacimiento}" id="nacimiento" name="nacimiento"
+				maxlength="300" placeholder="0000-00-00" required>
+		<p>
+			<label for="profesion">PROFESION</label> <input type="text"
+				th:field="*{profesion}" id="profesion" name="profesion"
+				maxlength="300" placeholder="Profesion" required>
+		</p>
+
+		<button type="submit">Guardar Persona</button>
+
+	</form>
+
+
+</body>
+</html>
