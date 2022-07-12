@@ -1,4 +1,7 @@
 # BootcampJavaAWS2022
+#### Tecnologias Vistas:
+Servlets, JSP, AWT, Swing, JFX, Spring, Lombok, Spring MVC, JPA, JDBC, SpringBoot, Tomcat, Maven, CXF, Swagger, Log4j, JWT.
+
 ## Ejercicios
 ### Clase 2 (Ejercicios Varios).
 - [Clase 2](https://github.com/mateoValdesolo/BootcampJavaAWS2022/blob/master/EjerciciosBootcampJava2022/src/clase2)
@@ -34,3 +37,5 @@
 - [crudSoap](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/crudSoap)
 ### Web Service Rest Crud de Personas, usando CXF.
 - [crudRest](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/crudRest)
+### Web Service Rest Crud de Personas, usando RestController, SpringBoot.
+- [crudRestController](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/crudRestController)
