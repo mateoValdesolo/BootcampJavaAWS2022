@@ -41,3 +41,6 @@ Servlets, JSP, AWT, Swing, JFX, Spring, Lombok, Spring MVC, JPA, JDBC, SpringBoo
 - [crudRest](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/crudRest)
 ### Web Service Rest Crud de Personas, usando RestController, SpringBoot.
 - [crudRestController](https://github.com/mateoValdesolo/BootcampJavaAWS2022/tree/master/crudRestController)
+***
+## Otros
+- [BD crud SQL](https://github.com/mateoValdesolo/BootcampJavaAWS2022/blob/master/BD%20Crud%20SQL.sql)
